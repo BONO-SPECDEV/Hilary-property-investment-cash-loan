@@ -1,0 +1,433 @@
+:root {
+    --royal-blue: #002366;
+    --gold: #FFD700;
+    --white: #ffffff;
+    --black: #333333;
+    --error-red: #ff4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--black);
+}
+
+/* Image Error Handling */
+img {
+    border: 1px solid transparent;
+    position: relative;
+}
+
+img::after {
+    content: attr(alt);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f1f1f1;
+    color: var(--error-red);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* Hero Section with Fallback Background */
+.hero {
+    height: 100vh;
+    background: 
+        linear-gradient(to right, rgba(0, 35, 102, 0.7), rgba(0, 35, 102, 0.5)),
+        url('./assets/AA.jpg') no-repeat center center/cover,
+        var(--royal-blue); /* Fallback color */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Now handled in .hero */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Floating Money Animation with Fallback */
+.floating-money {
+    position: absolute;
+    background: 
+        url('./assets/dd-money.jpg') no-repeat center center/contain,
+        linear-gradient(to bottom right, var(--gold), var(--white)); /* Fallback */
+    width: 300px;
+    height: 200px;
+    opacity: 0.7;
+    animation: float 15s infinite ease-in-out;
+    border: 2px dashed rgba(255, 215, 0, 0.3); /* Visible fallback */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(50px, 50px) rotate(5deg);
+    }
+    50% {
+        transform: translate(0, 100px) rotate(0deg);
+    }
+    75% {
+        transform: translate(-50px, 50px) rotate(-5deg);
+    }
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background-color: var(--gold);
+    color: var(--royal-blue);
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+}
+
+/* Requirements Section */
+.requirements {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: var(--white);
+}
+
+.requirements h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--royal-blue);
+}
+
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.requirement-card {
+    background-color: #f9f9f9;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.requirement-card:hover {
+    transform: translateY(-10px);
+}
+
+.requirement-card i {
+    font-size: 3rem;
+    color: var(--royal-blue);
+    margin-bottom: 20px;
+}
+
+/* Urgency Banner */
+.urgency-banner {
+    background-color: var(--royal-blue);
+    color: var(--white);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.banner-content p {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Application Form */
+.application-form {
+    padding: 80px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.application-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--royal-blue);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.submit-button {
+    background-color: var(--royal-blue);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #001a4d;
+}
+
+/* Contact Info */
+.contact-info {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--royal-blue);
+}
+
+.contact-info a {
+    display: block;
+    margin: 15px 0;
+    color: var(--royal-blue);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
+
+.whatsapp-button {
+    background-color: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Footer */
+/* Footer Styles */
+footer {
+    background-color: var(--royal-blue);
+    color: var(--white);
+    padding: 40px 20px 20px;
+    font-size: 0.95rem;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+.footer-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.brand-tagline {
+    margin-bottom: 20px;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin-bottom: 12px;
+}
+
+.footer-section a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: inline-block;
+}
+
+.footer-section a:hover {
+    color: var(--gold);
+    transform: translateX(5px);
+}
+
+.contact-info i {
+    margin-right: 10px;
+    width: 18px;
+    text-align: center;
+}
+
+.ncr-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+}
+
+.ncr-badge img {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.ncr-badge span {
+    background-color: var(--gold);
+    color: var(--royal-blue);
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.footer-bottom p {
+    margin-bottom: 5px;
+}
+
+.legal {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.service-area {
+    font-style: italic;
+    margin-top: 15px;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .footer-section {
+        text-align: center;
+    }
+    
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .ncr-badge {
+        align-items: center;
+    }
+    
+    .footer-section a:hover {
+        transform: none;
+    }
+}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero {
+        background-size: cover;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .floating-money {
+        width: 200px;
+        height: 150px;
+    }
+    
+    .requirements h2, .application-form h2 {
+        font-size: 2rem;
+    }
+    
+    .banner-content p {
+        font-size: 1.4rem;
+    }
+}
