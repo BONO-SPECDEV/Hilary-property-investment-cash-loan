@@ -24,23 +24,3 @@ document.addEventListener('DOMContentLoaded', function() {
             form.reset();
         });
     }
-
-    // Create additional floating money elements
-    for (let i = 0; i < 5; i++) {
-        createFloatingMoney();
-    }
-});
-
-function createFloatingMoney() {
-    const money = document.createElement('div');
-    money.className = 'floating-money';
-    money.style.left = Math.random() * 100 + 'vw';
-    money.style.top = Math.random() * 100 + 'vh';
-    money.style.transform = `rotate(${Math.random() * 360}deg)`;
-    money.style.animationDuration = 10 + Math.random() * 20 + 's';
-    money.style.opacity = 0.3 + Math.random() * 0.5;
-    money.style.width = (50 + Math.random() * 150) + 'px';
-    money.style.height = (30 + Math.random() * 100) + 'px';
-    
-    document.querySelector('.hero').appendChild(money);
-}

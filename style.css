@@ -39,13 +39,15 @@ img::after {
     font-weight: bold;
 }
 
-/* Hero Section with Fallback Background */
 .hero {
     height: 100vh;
     background: 
+        /* Gradient overlay (adjust opacity as needed) */
         linear-gradient(to right, rgba(0, 35, 102, 0.7), rgba(0, 35, 102, 0.5)),
-        url('./assets/AA.jpg') no-repeat center center/cover,
-        var(--royal-blue); /* Fallback color */
+        /* Primary image */
+        url('./assets/hero-woman.png.jpg') no-repeat center center/cover,
+        /* Fallback color */
+        var(--royal-blue);
     position: relative;
     display: flex;
     align-items: center;
@@ -53,6 +55,12 @@ img::after {
     text-align: center;
     color: var(--white);
     padding: 0 20px;
+}
+
+/* Ensure content stays above background */
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-overlay {
@@ -81,18 +89,6 @@ img::after {
     margin-bottom: 30px;
 }
 
-/* Floating Money Animation with Fallback */
-.floating-money {
-    position: absolute;
-    background: 
-        url('./assets/dd-money.jpg') no-repeat center center/contain,
-        linear-gradient(to bottom right, var(--gold), var(--white)); /* Fallback */
-    width: 300px;
-    height: 200px;
-    opacity: 0.7;
-    animation: float 15s infinite ease-in-out;
-    border: 2px dashed rgba(255, 215, 0, 0.3); /* Visible fallback */
-}
 
 @keyframes float {
     0%, 100% {
@@ -108,19 +104,19 @@ img::after {
         transform: translate(-50px, 50px) rotate(-5deg);
     }
 }
+.ncr-badge {
+    text-align: center;
+}
 
-/* CTA Button */
 .cta-button {
-    display: inline-block;
-    background-color: var(--gold);
-    color: var(--royal-blue);
-    padding: 15px 30px;
-    border-radius: 50px;
+    display: inline-block; /* Must be inline-block or block with auto margins */
+    margin: 15px auto 0; /* Top margin + auto left/right centers it */
+    padding: 10px 30px;
+    background-color: #00ff08c9;
+    color: white;
     text-decoration: none;
+    border-radius: 5px;
     font-weight: bold;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
 }
 
 .cta-button:hover {

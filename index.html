@@ -12,7 +12,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-overlay"></div>
-        <div class="floating-money"></div>
+        
         <div class="hero-content">
             <h1>Need Cash Fast?<br>Get Approved in Seconds!</h1>
             <p>✔ Loans from R1000<br>✔ Serving South African clients only</p>
@@ -46,7 +46,9 @@
     <!-- Urgency Banner -->
     <section class="urgency-banner">
         <div class="banner-content">
-            <p>😓 Stressed about money?<br>Apply for an instant personal loan and breath easy again!</p>
+            <div class="ncr-badge">
+            
+            <p>😓 Stressed about money?<br>Apply for an instant personal loan and breathe easy again!</p>
             <a href="#apply" class="cta-button">Apply Now</a>
         </div>
     </section>
@@ -73,7 +75,7 @@
         
         <div class="contact-info">
             <h3>Contact Us</h3>
-            <a href="tel:0761997011"><i class="fas fa-phone"></i> +27 76 199 7011</a>
+            <a href="tel:+27761997011"><i class="fas fa-phone"></i> +27 76 199 7011</a>
             <a href="mailto:hilarympho@gmail.com"><i class="fas fa-envelope"></i> hilarympho@gmail.com</a>
             <a href="https://wa.me/27761997011" class="whatsapp-button">
                 <i class="fab fa-whatsapp"></i> WhatsApp Us
@@ -89,7 +91,8 @@
                 <h3>Hilary Property Investment</h3>
                 <p class="brand-tagline">Your trusted partner for quick and reliable personal loans in South Africa.</p>
                 <div class="ncr-badge">
-                    <img src="./assets/ncr-logo.png" alt="NCR Registered" onerror="this.src='https://via.placeholder.com/150x50/002366/FFFFFF?text=NCR+Registered'">
+                    <img src="./assets/ncr-logo.png.jpeg" alt="NCR Registered" 
+                         onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'150\' height=\'50\' viewBox=\'0 0 150 50\'%3E%3Crect fill=\'%23002366\' width=\'150\' height=\'50\'/%3E%3Ctext fill=\'%23FFFFFF\' font-family=\'Arial\' font-size=\'10\' x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\'%3ENCR Registered%3C/text%3E%3C/svg%3E'">
                     <span>Credit Provider</span>
                 </div>
             </div>
@@ -99,9 +102,9 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#apply">Apply Now</a></li>
-                    <li><a href="tel:0761997011">Call Us</a></li>
+                    <li><a href="tel:27761997011">Call Us</a></li>
                     <li><a href="mailto:hilarympho@gmail.com">Email Us</a></li>
-                    <li><a href="https://wa.me/2761997011">WhatsApp</a></li>
+                    <li><a href="https://wa.me/27761997011">WhatsApp</a></li>
                 </ul>
             </div>
             
@@ -118,20 +121,26 @@
         
         <!-- Footer Bottom -->
         <div class="footer-bottom">
-            <p>NCR Registered | Hilary Property Investment © 2025. All Rights Reserved.</p>
+            <p>NCR Registered | Hilary Property Investment © <span id="current-year">2025</span>. All Rights Reserved.</p>
             <p class="legal">Responsible lending practices | Terms and conditions apply</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
     
-    <!-- Image Loading Check -->
+    <!-- Image Loading Check and Year Update -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Update copyright year automatically
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Image loading check
             const images = document.querySelectorAll('img');
             images.forEach(img => {
                 if (!img.complete || img.naturalWidth === 0) {
                     console.log('Image loading issue detected:', img.src);
+                    // Add visual indicator for broken images
+                    img.style.border = '2px dashed red';
                 }
             });
         });
